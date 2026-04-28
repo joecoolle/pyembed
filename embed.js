@@ -538,10 +538,12 @@
       // Numbers
       { tag: [tags.number, tags.integer, tags.float],
         color: '#000000' },
-      // Operators and punctuation — plain black
+      // Operators, punctuation and namespace — plain black
+      // tags.namespace covers `*` in `from x import *` and module name references
       { tag: [tags.operator, tags.punctuation, tags.bracket, tags.derefOperator,
               tags.arithmeticOperator, tags.compareOperator, tags.bitwiseOperator,
-              tags.logicOperator, tags.updateOperator, tags.typeOperator],
+              tags.logicOperator, tags.updateOperator, tags.typeOperator,
+              tags.namespace],
         color: '#000000' },
     ]));
 
