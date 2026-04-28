@@ -539,7 +539,9 @@
       { tag: [tags.number, tags.integer, tags.float],
         color: '#000000' },
       // Operators and punctuation — plain black
-      { tag: [tags.operator, tags.punctuation, tags.bracket, tags.derefOperator],
+      { tag: [tags.operator, tags.punctuation, tags.bracket, tags.derefOperator,
+              tags.arithmeticOperator, tags.compareOperator, tags.bitwiseOperator,
+              tags.logicOperator, tags.updateOperator, tags.typeOperator],
         color: '#000000' },
     ]));
 
@@ -900,9 +902,10 @@
         return;
       }
 
-      // Declared outside try so finally block can access them
-      let turtleAnimId = null;
+      // Declared outside try so catch/finally blocks can access them
+      let turtleAnimId  = null;
       let skulptTarget  = null;
+      let preambleLines = 36;   // updated inside try; fallback if error occurs before preamble
 
       try {
         const Sk = await skulptPromise;
@@ -1000,7 +1003,7 @@ PermissionError   = IOError
 IsADirectoryError = IOError
 
 `;
-        const preambleLines = preamble.split('\n').length;
+        preambleLines = preamble.split('\n').length;
 
         // ── Configure Skulpt ───────────────────────────────────────────────
         Sk.TurtleGraphics = {
@@ -1048,8 +1051,7 @@ IsADirectoryError = IOError
         if (_stopRequested || e.tp$name === 'TimeLimitError') {
           appendOut('\n[Stopped]', false);
         } else {
-          const preamble = (e._preambleLines) || 36;
-          appendOut(formatSkulptError(e, preamble), true);
+          appendOut(formatSkulptError(e, preambleLines), true);
         }
       } finally {
         _stopRequested = false;
