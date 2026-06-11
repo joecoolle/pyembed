@@ -4,7 +4,7 @@
   "files": [
     {
       "name": "main.py",
-      "content": "#Här brukar man kommentera med namn på den/de som skrivit koden.\n#Vilket datum koden skrevs eller vilken verision det är.\n#Är det en inlämning, ta även med kurskoden.\n\ndef påstående(favoritglass):\n  \"\"\"Returnerar ett påstående om en favoritglass (sträng)\"\"\"\n  return favoritglass + \" är den godaste glassen!\"\n  \nFAVORITGLASS = "Piggelin"          # Här kan du ändra till din favoritglass\n\nprint(\"Exempel 1 - Strängar\")\nprint(\"Om jag kodar hela förmiddagen får jag en \" + FAVORITGLASS + \" efter lunch.\", end = \" \")\nprint(\"Men om jag också städar i eftermiddag får jag åtminstone en\", FAVORITGLASS, \"till!\")\nprint(f\"Om det är varmt behöver jag en {FAVORITGLASS} för att mäkta med!\")\n\nprint(påstående(FAVORITGLASS))\nprint("Nej, " + påstående("Lakritspuck"))\n\n\n\n"
+      "content": "#Här brukar man kommentera med namn på den/de som skrivit koden.\n#Vilket datum koden skrevs eller vilken verision det är.\n#Är det en inlämning, ta även med kurskoden.\n\ndef påstående(favoritglass):\n  \"\"\"Returnerar ett påstående om en favoritglass (sträng)\"\"\"\n  return favoritglass + \" är den godaste glassen!\"\n  \nFAVORITGLASS = "Piggelin"          # Här kan du ändra till din favoritglass\n\nprint(\"Exempel 1 - Strängar\")\nprint(\"Om jag kodar hela förmiddagen får jag en \" + FAVORITGLASS + \" efter lunch.\", end = \" \")\nprint(\"Men om jag också städar i eftermiddag får jag åtminstone en\", FAVORITGLASS, \"till!\")\nprint(f\"Om det är varmt behöver jag en \{FAVORITGLASS\} för att mäkta med!\")\n\nprint(påstående(FAVORITGLASS))\nprint("Nej, " + påstående("Lakritspuck"))\n\n\n\n"
     }
   ]
 }
