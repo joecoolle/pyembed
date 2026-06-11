@@ -1,0 +1,17 @@
+#Här brukar man kommentera med namn på den/de som skrivit koden.
+#Vilket datum koden skrevs eller vilken verision det är.
+#Är det en inlämning, ta även med kurskoden.
+
+def påstående(favoritglass):
+  """Returnerar ett påstående om en favoritglass (sträng)"""
+  return favoritglass + " är den godaste glassen!"
+  
+FAVORITGLASS = "Piggelin"          # Här kan du ändra till din favoritglass
+
+print("Exempel 1 - Strängar")
+print("Om jag kodar hela förmiddagen får jag en " + FAVORITGLASS + " efter lunch.", end = " ")
+print("Men om jag också städar i eftermiddag får jag åtminstone en", FAVORITGLASS, "till!")
+print(f"Om det är varmt behöver jag en {FAVORITGLASS} för att mäkta med!")
+
+print(påstående(FAVORITGLASS))
+print("Nej, " + påstående("Lakritspuck"))
