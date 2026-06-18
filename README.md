@@ -21,7 +21,7 @@ Embed a snippet on any page with a single `<iframe>`:
 
 - Replace `USERNAME` and `REPO` with your GitHub username and repository name
 - The `src` parameter is relative to the `snippets/` folder
-- Use the **</> Embed** button on any widget to get a ready-to-paste iframe
+- Use the **🔗 Copy URL** button on any widget to copy its viewer URL to the clipboard
 
 ---
 
@@ -171,7 +171,7 @@ Converts source folders of `.py` files (and multi-file subfolders) into snippet 
 | **File I/O** | Virtual filesystem: `open()`, `read()`, `write()`, `readline()`, `for line in file` all work; written files update in the editor |
 | **Multi-file** | Import across files; file panel on the left switches between them |
 | **Turtle graphics** | `import turtle` opens a canvas overlay automatically |
-| **`</> Embed`** | Generates an iframe embed code for the current snippet |
+| **🔗 Copy URL** | Copies the viewer URL for the current snippet to the clipboard |
 
 ---
 

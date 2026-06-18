@@ -112,61 +112,10 @@
 .${HOST_CLS} .pw-btn-dl:not(:disabled):hover    { background: #f3f4f6; border-color: #9a9da1; }
 .${HOST_CLS} .pw-btn-reset { background: #fff; color: #57606a; border-color: #d0d7de; }
 .${HOST_CLS} .pw-btn-reset:not(:disabled):hover { background: #fff8c5; border-color: #d4a72c; color: #24292e; }
-.${HOST_CLS} .pw-btn-embed { background: #fff; color: #0969da; border-color: #d0d7de; }
-.${HOST_CLS} .pw-btn-embed:hover { background: #dbeafe; border-color: #0969da; }
+.${HOST_CLS} .pw-btn-copy-url { background: #fff; color: #0969da; border-color: #d0d7de; }
+.${HOST_CLS} .pw-btn-copy-url:hover { background: #dbeafe; border-color: #0969da; }
 .${HOST_CLS} .pw-hint     { font-size: 12px; color: #57606a; flex-shrink: 0; }
 .${HOST_CLS} .pw-hint-err { color: #cf222e; }
-
-/* ── Embed modal (appended to body, not scoped to widget) ── */
-.psw-modal-overlay {
-  position: fixed; inset: 0; z-index: 99999;
-  background: rgba(0,0,0,0.45);
-  display: flex; align-items: center; justify-content: center;
-}
-.psw-modal {
-  background: #fff; border-radius: 10px;
-  box-shadow: 0 8px 32px rgba(0,0,0,0.22);
-  padding: 24px 28px; max-width: 560px; width: calc(100% - 40px);
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-}
-.psw-modal-title { font-size: 15px; font-weight: 600; color: #24292e; margin: 0 0 4px; }
-.psw-modal-sub   { font-size: 12px; color: #57606a; margin: 0 0 14px; }
-.psw-modal-code {
-  background: #f6f8fa; border: 1px solid #d0d7de; border-radius: 6px;
-  padding: 12px 14px; font-family: Menlo, Monaco, 'Courier New', monospace;
-  font-size: 12px; line-height: 1.7; color: #24292e;
-  white-space: pre; overflow-x: auto; margin-bottom: 16px;
-}
-.psw-modal-actions { display: flex; justify-content: flex-end; gap: 10px; }
-.psw-modal-btn {
-  padding: 6px 16px; border-radius: 6px; border: 1px solid transparent;
-  font-size: 13px; font-weight: 500; cursor: pointer; font-family: inherit;
-  transition: background 0.15s;
-}
-.psw-modal-copy  { background: #0969da; color: #fff; border-color: #0969da; }
-.psw-modal-copy:hover  { background: #0860ca; }
-.psw-modal-close { background: #fff; color: #24292e; border-color: #d0d7de; }
-.psw-modal-close:hover { background: #f3f4f6; }
-.psw-modal-dl    { background: #1f883d; color: #fff; border-color: #1f883d; }
-.psw-modal-dl:hover    { background: #1a7f37; }
-/* Tabs */
-.psw-modal-tabs  { display: flex; gap: 0; margin-bottom: 16px; border-bottom: 1px solid #d0d7de; }
-.psw-modal-tab   {
-  padding: 7px 16px; font-size: 13px; font-weight: 500; cursor: pointer;
-  background: none; border: none; border-bottom: 2px solid transparent;
-  color: #57606a; font-family: inherit; margin-bottom: -1px;
-}
-.psw-modal-tab:hover  { color: #24292e; }
-.psw-modal-tab.active { color: #0969da; border-bottom-color: #0969da; }
-/* JSON filename input */
-.psw-modal-filename {
-  width: 100%; padding: 7px 10px; border: 1px solid #d0d7de; border-radius: 6px;
-  font-size: 13px; font-family: Menlo, Monaco, 'Courier New', monospace;
-  color: #24292e; margin-bottom: 12px; outline: none;
-}
-.psw-modal-filename:focus { border-color: #0969da; box-shadow: 0 0 0 3px rgba(9,105,218,0.1); }
-.psw-modal-panel { display: none; }
-.psw-modal-panel.active { display: block; }
 
 /* ── Main area ── */
 .${HOST_CLS} .pw-main { display: flex; flex: 1; overflow: hidden; min-height: 0; }
@@ -215,7 +164,7 @@
 .${HOST_CLS}.pw-narrow .pw-btn     { padding: 7px 10px; font-size: 13px; }
 .${HOST_CLS}.pw-narrow .pw-btn-dl-label    { display: none; }
 .${HOST_CLS}.pw-narrow .pw-btn-reset-label { display: none; }
-.${HOST_CLS}.pw-narrow .pw-btn-embed-label { display: none; }
+.${HOST_CLS}.pw-narrow .pw-btn-copy-url-label { display: none; }
 .${HOST_CLS}.pw-narrow .pw-files     { display: none; }
 .${HOST_CLS}.pw-narrow .pw-file-tabs { display: block; }
 
@@ -341,6 +290,27 @@
     return e;
   }
 
+  function copyToClipboard(text) {
+    if (navigator.clipboard?.writeText) {
+      return navigator.clipboard.writeText(text);
+    }
+    return new Promise((resolve, reject) => {
+      const ta = document.createElement('textarea');
+      ta.value = text;
+      ta.style.position = 'fixed';
+      ta.style.opacity = '0';
+      document.body.appendChild(ta);
+      ta.select();
+      try {
+        document.execCommand('copy') ? resolve() : reject();
+      } catch (_) {
+        reject();
+      } finally {
+        document.body.removeChild(ta);
+      }
+    });
+  }
+
   /** Format a Skulpt exception into a readable string, adjusting for preamble. */
   function formatSkulptError(e, preambleLines) {
     let type = 'Error', msg = '', line = null;
@@ -433,13 +403,13 @@
     resetBtn.title = 'Restore all files to their original state';
     resetBtn.innerHTML = '↺ <span class="pw-btn-reset-label">Reset</span>';
 
-    const embedBtn = el('button', 'pw-btn pw-btn-embed');
-    embedBtn.title = 'Get embed code for this snippet';
-    embedBtn.innerHTML = '&lt;/&gt; <span class="pw-btn-embed-label">Embed</span>';
+    const copyUrlBtn = el('button', 'pw-btn pw-btn-copy-url');
+    copyUrlBtn.title = 'Copy URL';
+    copyUrlBtn.innerHTML = '🔗 <span class="pw-btn-copy-url-label">Copy URL</span>';
     const fsBtn = el('button', 'pw-fullscreen-btn', '⛶');
     fsBtn.title = 'Fullscreen';
     const hint = el('span', 'pw-hint', 'Loading Python…');
-    toolbar.append(titleArea, runBtn, dlBtn, resetBtn, embedBtn, fsBtn, hint);
+    toolbar.append(titleArea, runBtn, dlBtn, resetBtn, copyUrlBtn, fsBtn, hint);
     widget.appendChild(toolbar);
 
     // Main area
@@ -712,108 +682,17 @@
       clearOutput();
     });
 
-    embedBtn.addEventListener('click', () => {
-      // ── iframe embed code ────────────────────────────────────────────────────
+    copyUrlBtn.addEventListener('click', () => {
       const base = _embedScriptSrc
         ? _embedScriptSrc.replace(/\/embed\.js$/, '')
         : 'https://USERNAME.github.io/REPO';
       const shortSrc  = dataSrc.replace(/^(https?:\/\/[^/]+\/[^/]+\/)?snippets\//, '');
       const viewerUrl = `${base}/viewer.html?src=${encodeURIComponent(shortSrc)}`;
-      const iframeCode = `<iframe\n  src="${viewerUrl}"\n  width="100%"\n  height="540"\n  style="border:none;border-radius:8px;"\n  loading="lazy"\n  allowfullscreen\n></iframe>`;
-
-      // ── Suggest a filename from the snippet title ────────────────────────────
-      const defaultFilename = (snippet.title || 'my_snippet')
-        .toLowerCase().replace(/[^a-z0-9]+/g, '_').replace(/^_|_$/g, '') + '.json';
-
-      // ── Build modal ──────────────────────────────────────────────────────────
-      const overlay = document.createElement('div');
-      overlay.className = 'psw-modal-overlay';
-      overlay.innerHTML = `
-        <div class="psw-modal" role="dialog" aria-modal="true">
-          <p class="psw-modal-title">Export / Embed</p>
-
-          <div class="psw-modal-tabs">
-            <button class="psw-modal-tab active" data-tab="iframe">iframe Embed</button>
-            <button class="psw-modal-tab"        data-tab="json">Create JSON file</button>
-          </div>
-
-          <!-- Tab: iframe -->
-          <div class="psw-modal-panel active" data-panel="iframe">
-            <p class="psw-modal-sub">Paste this into any HTML page — no extra script tag needed.</p>
-            <div class="psw-modal-code">${iframeCode.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}</div>
-            <div class="psw-modal-actions">
-              <button class="psw-modal-btn psw-modal-close">Close</button>
-              <button class="psw-modal-btn psw-modal-copy">Copy</button>
-            </div>
-          </div>
-
-          <!-- Tab: JSON -->
-          <div class="psw-modal-panel" data-panel="json">
-            <p class="psw-modal-sub">Downloads the current editor contents as a JSON snippet file ready to upload to GitHub.</p>
-            <input class="psw-modal-filename" type="text" value="${defaultFilename}" spellcheck="false" />
-            <div class="psw-modal-actions">
-              <button class="psw-modal-btn psw-modal-close">Close</button>
-              <button class="psw-modal-btn psw-modal-dl">Download JSON</button>
-            </div>
-          </div>
-        </div>`;
-      document.body.appendChild(overlay);
-
-      // ── Tab switching ────────────────────────────────────────────────────────
-      overlay.querySelectorAll('.psw-modal-tab').forEach(tab => {
-        tab.addEventListener('click', () => {
-          overlay.querySelectorAll('.psw-modal-tab').forEach(t => t.classList.remove('active'));
-          overlay.querySelectorAll('.psw-modal-panel').forEach(p => p.classList.remove('active'));
-          tab.classList.add('active');
-          overlay.querySelector(`.psw-modal-panel[data-panel="${tab.dataset.tab}"]`).classList.add('active');
-        });
-      });
-
-      // ── Close ────────────────────────────────────────────────────────────────
-      const closeModal = () => overlay.remove();
-      overlay.querySelectorAll('.psw-modal-close').forEach(btn => {
-        btn.addEventListener('click', closeModal);
-      });
-      overlay.addEventListener('click', e => { if (e.target === overlay) closeModal(); });
-
-      // ── Copy iframe code ─────────────────────────────────────────────────────
-      const copyBtn = overlay.querySelector('.psw-modal-copy');
-      copyBtn.addEventListener('click', () => {
-        navigator.clipboard.writeText(iframeCode).then(() => {
-          copyBtn.textContent = 'Copied!';
-          setTimeout(() => { copyBtn.textContent = 'Copy'; }, 2000);
-        }).catch(() => {
-          const ta = document.createElement('textarea');
-          ta.value = iframeCode;
-          ta.style.position = 'fixed'; ta.style.opacity = '0';
-          document.body.appendChild(ta); ta.select();
-          document.execCommand('copy');
-          document.body.removeChild(ta);
-          copyBtn.textContent = 'Copied!';
-          setTimeout(() => { copyBtn.textContent = 'Copy'; }, 2000);
-        });
-      });
-
-      // ── Download JSON ────────────────────────────────────────────────────────
-      overlay.querySelector('.psw-modal-dl').addEventListener('click', () => {
-        // Build snippet JSON from current editor contents
-        const currentFiles = files.map(f => ({
-          name:    f.name,
-          content: getContent(f.name),
-        }));
-        const jsonSnippet = {
-          ...(snippet.title       ? { title:       snippet.title }       : {}),
-          ...(snippet.description ? { description: snippet.description } : {}),
-          files: currentFiles,
-        };
-        const jsonText = JSON.stringify(jsonSnippet, null, 2);
-        const filename = overlay.querySelector('.psw-modal-filename').value.trim() || defaultFilename;
-        const blob = new Blob([jsonText], { type: 'application/json' });
-        const url  = URL.createObjectURL(blob);
-        const a    = Object.assign(document.createElement('a'), { href: url, download: filename });
-        document.body.appendChild(a); a.click(); document.body.removeChild(a);
-        setTimeout(() => URL.revokeObjectURL(url), 500);
-      });
+      const originalHtml = copyUrlBtn.innerHTML;
+      copyToClipboard(viewerUrl).then(() => {
+        copyUrlBtn.innerHTML = '✓ <span class="pw-btn-copy-url-label">Copied!</span>';
+        setTimeout(() => { copyUrlBtn.innerHTML = originalHtml; }, 2000);
+      }).catch(() => {});
     });
 
     // ── Responsive: narrow mode via ResizeObserver ────────────────────────────
