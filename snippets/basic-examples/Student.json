@@ -1,0 +1,9 @@
+{
+  "title": "Student",
+  "files": [
+    {
+      "name": "Student.py",
+      "content": "class Person:\n    def __init__(self, förnamn, efternamn, födelseår):\n        self.förnamn = förnamn\n        self.efternamn = efternamn\n        self.födelseår = födelseår\n\n    def __repr__(self):\n        return self.förnamn + \" född \" + str(self.födelseår)\n\n    def skriv_intro(self):\n        print(\"Hej jag heter \" + self.förnamn + \" \" +\n              self.efternamn + \" och jag är född\" + str(self.födelseår))\n\n\nclass Student(Person):\n\n    def __init__(self, förnamn, efternman, födelseår, nivå=\"kandidat\"):\n        super().__init__(förnamn, efternman, födelseår)\n        self.nivå = nivå\n\n    def masterNivå(self):\n        self.nivå = \"master\"\n\n\nstudent = Student(\"Petra\", \"Teknolog\", 1997)\nprint(str(student) + \" pluggar nu på \" + student.nivå + \"-nivå\")\nprint(\"Men hon fick precis ut sin examen.\")\nstudent.masterNivå()\nprint(str(student) + \" pluggar nu på \" + student.nivå + \"-nivå\")\n"
+    }
+  ]
+}

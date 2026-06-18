@@ -1,0 +1,9 @@
+{
+  "title": "Månader",
+  "files": [
+    {
+      "name": "Månader.py",
+      "content": "månader = {\"jan\":31, \"feb\":28, \"mar\":31, \"apr\":30,\n\"maj\":31, \"jun\":30, \"jul\":31, \"aug\":31, \"sep\":30,\n\"okt\":31, \"nov\":30, \"dec\":31} \n\nvald_månad = \"jan\"\n\nif vald_månad in månader.keys(): # Om den valda månden är en nyckel i hashtabellen månader\n    print(vald_månad, \"har\", månader[vald_månad], \"antal dagar.\")\n\nprint(\"\\nHela året ser ut så här:\")\nfor månad in månader.keys(): # Går igenom varje nyckel och skriver ut nyckeln och värdet\n    print(månad, \"har\", månader[månad], \"antal dagar.\")\n"
+    }
+  ]
+}

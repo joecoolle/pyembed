@@ -1,0 +1,9 @@
+{
+  "title": "Kostnader",
+  "files": [
+    {
+      "name": "Kostnader.py",
+      "content": "def beräkna_lönekostnader(antal_anställda):\n  \"\"\"Tar antalet anställda och returnerar totala lönekostnaden per månad\"\"\"\n  return antal_anställda*30000 \n\ndef beräkna_lokalkostnader(area, antal_kaffemaskiner):\n  \"\"\"Tar area och antal kaffemaskiner, returnerar totala lokalkostnaden per månad\"\"\"\n  summa = area*5000 \n  summa = summa + antal_kaffemaskiner*500 \n  return summa\n  \ndef beräkna_slutresultat(lönekostnader, lokalkostnader):\n  summa = lönekostnader + lokalkostnader\n  return summa\n  \nlönekostnader = beräkna_lönekostnader(19) \nlokalkostnader = beräkna_lokalkostnader(214, 300) \ntotala_kostnader = beräkna_slutresultat(lönekostnader, lokalkostnader) \nprint(\"Totala kostnader för lokal och personal är  \" + str(totala_kostnader) + \" i månaden\")\n"
+    }
+  ]
+}

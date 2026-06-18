@@ -1,0 +1,9 @@
+{
+  "title": "While",
+  "files": [
+    {
+      "name": "While.py",
+      "content": "antal_hej = 17\ni = 0\n\nwhile i < antal_hej:\n    print(\"Hej!\")\n    i += 1    \nprint(\"Tack! Programmet Avslutas.\")\n"
+    }
+  ]
+}

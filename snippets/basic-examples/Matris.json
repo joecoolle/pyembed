@@ -1,0 +1,9 @@
+{
+  "title": "Matris",
+  "files": [
+    {
+      "name": "Matris.py",
+      "content": "# Ett exempel på en matris\ntabell = [] # här skapar vi en tom lista som vi sedan kommer att fylla på med rader.\nförsta_raden = [\"a\",\"b\",\"c\",\"d\"] # raderna är också listor och varje rad innehåller 4 strängar\nandra_raden = [\"e\",\"f\",\"g\",\"h\"]\ntredje_raden = [\"i\",\"j\",\"k\",\"l\"]\n\ntabell.append(första_raden) # Här lägger vi in första raden i tabellen\ntabell.append(andra_raden)\ntabell.append(tredje_raden)\n\nprint(\"Om vi skriver ut tabellen så ser vi här att vi har listor i listor\", tabell)\n\n# För att plocka ut ett element ur en matris, behöver vi ange två index, \n# först på vilken rad det är och sedan på vilken plats i raden (vilken kolumn)\nelement = tabell[0][0] # På första raden och första kolumnen\nprint(\"Elementet på plats [0][0] är:\", element)\n\n# Vilket element finns på rad = 2 och kolumn = 2?\n"
+    }
+  ]
+}

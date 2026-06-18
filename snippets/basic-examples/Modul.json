@@ -1,0 +1,9 @@
+{
+  "title": "Modul",
+  "files": [
+    {
+      "name": "Modul.py",
+      "content": "import math\n\ndef area_cirkel(radien):\n    area = math.pow(radien, 2) * math.pi\n    return area\n  \ndef huvudprogram():\n    radie = 4\n    area = area_cirkel(radie)\n    print(\"Arean av cirkeln med radien\", radie, \"längdeneter är:\", round(area, 2), \"areaenheter\")\n    # round används för att avrunda ett flyttal till ett visst antal decimaler, i detta fall 2.\n\nhuvudprogram()\n"
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "title": "Katt",
+  "files": [
+    {
+      "name": "Katt.py",
+      "content": "# Exempel som visar hur man skickar in variabel med int.\nkattnummer = 3\nkattnamn = input(\"Ge namnet på katt nummer \" + str(kattnummer) + \": \")\n\nprint(\"Katt nummer \"+str(kattnummer)+\" heter \"+str(kattnamn)) \n\n\n# Raden här under kommer att ge ett felmeddelande och inte fungera:\nkattnamn = input(\"Ge namnet på katt nummer\", kattnummer, \": \")\n"
+    }
+  ]
+}

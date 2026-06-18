@@ -1,0 +1,9 @@
+{
+  "title": "MenyMHeltal",
+  "files": [
+    {
+      "name": "MenyMHeltal.py",
+      "content": "def heltal(inmatning):\n  try: \n    int(inmatning)\n    return True\n  except ValueError:\n    return False\n    \ndef meny(): \n  \"\"\"En funktion som skriver ut en meny och frågar användaren om inmatning\"\"\"\n  print(\"Meny\\n1. Skriv ut en text.\\n2. Mata in en text.\\n3. Avsluta.\") \n  text = \"Det var en gång\" \n  val = input(\"Vad vill du göra?\\n\")\n  while not heltal(val):\n    print(\"Nej, det där var inte ett giligt menyval, vänligen försök igen\")\n    val = input(\"Vad vill du göra?\\n\")\n  val = int(val)        #Nu vet vi att det är ett heltal så då kan vi göra om datatypen\n  while val != 3: \n    if val == 1: \n      print(text) \n    elif val == 2: \n      text = input(\"Varsågod och mata in din text: \\n\")\n    val = input(\"Vad vill du göra?\\n\")  #Vi behöver samma kod här, eftersom det är samma kod\n    while not heltal(val):            #kan vi göra om den till en funktion också, så slipper vi kodupprepning\n      print(\"Nej, det där var inte ett giligt menyval, vänligen försök igen\")\n      val = input(\"Vad vill du göra?\\n\")\n    val = int(val) \n  print(\"Avslutar.\")\n\nmeny()\n"
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "title": "Temperatur",
+  "files": [
+    {
+      "name": "Temperatur.py",
+      "content": "def farenheit(grader_celsius):\n  \"\"\"Returnerar grader Celsius i Farenheit\"\"\"\n  return grader_celsius * 1.8 + 32\n  \ndef celcius(grader_farenheit):\n  \"\"\"Returnerar grader Farenheit i Celsius\"\"\"\n  return (grader_farenheit-32)/1.8\n  \nprint(\"\\nExempel 2 - Heltal och flyttal\")\ntemperatur = 10  # Prova ändra temperatur\n\nprint(f\"{temperatur} grader Celsius motsvarar {farenheit(temperatur)} grader Farenheit\")\n\nGRADERS_ÖKNING = 1  # Prova ändra hur många grader tempraturen ska ökar\ntemperatur += GRADERS_ÖKNING \n\nprint(f\"{temperatur} grader Celsius motsvarar {farenheit(temperatur)} grader Farenheit\")\n\nprint(f\"Men {temperatur} grader Farenheit skulle vara {celcius(temperatur)} grader Celsius\")\n"
+    }
+  ]
+}

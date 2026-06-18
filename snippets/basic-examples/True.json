@@ -1,0 +1,9 @@
+{
+  "title": "True",
+  "files": [
+    {
+      "name": "True.py",
+      "content": "x = 5    # 'x' tilldelas värdet 5\nprint(x) # skriver ut 5\nprint(x == 5) #jämför om x är lika med 5, skriver ut True eftersom det stämmer.\n"
+    }
+  ]
+}

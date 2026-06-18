@@ -1,0 +1,9 @@
+{
+  "title": "Dagar",
+  "files": [
+    {
+      "name": "Dagar.py",
+      "content": "dagar = [\"Mån\", \"Tis\", \"Ons\", \"Tor\", \"Fre\", \"Lör\", \"Sön\"]\n\ni=0\nwhile i<5:\n  print(dagar[i])\n  i= i+1\n"
+    }
+  ]
+}

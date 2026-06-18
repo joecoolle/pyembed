@@ -1,0 +1,9 @@
+{
+  "title": "Glasslista",
+  "files": [
+    {
+      "name": "Glasslista.py",
+      "content": "def skapa_lista():\n    glasslista = [\"vaniljglass\", \"jordgubbsglass\", \"chokladglass\"]\n    return glasslista\n  \ndef ny_smak(glasslista):\n    glasslista.append(\"hallonglass\")\n    glasslista.append(\"blåbärsglass\")\n    return glasslista\n  \ndef sortera_lista(glasslista):\n    return glasslista.sort()\n  \ndef ta_bort(glasslista, smak):\n    glasslista.remove(smak)\n    return glasslista\n\ndef huvudprogram():\n  glassar = skapa_lista()\n  med_nya_smaker = ny_smak(glassar)\n  uppdaterad_lista = ta_bort(med_nya_smaker, \"hallonglass\")\n  sorterad_lista = sortera_lista(uppdaterad_lista)\n  print(sorterad_lista)\n"
+    }
+  ]
+}

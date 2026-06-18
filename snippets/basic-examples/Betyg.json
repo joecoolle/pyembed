@@ -1,0 +1,9 @@
+{
+  "title": "Betyg",
+  "files": [
+    {
+      "name": "Betyg.py",
+      "content": "# Exempel med fel ordning på if-satserna,\n# betyg(95) borde ge ett A.\n\ndef betyg(poäng):\n  \"\"\"Konvertera poäng till betyg\"\"\"\n  if poäng >= 50:\n    return \"E\"\n  elif poäng >= 60: \n    return \"D\"\n  elif poäng >= 70:\n    return \"C\"\n  elif poäng >= 80:\n    return \"B\"\n  elif poäng >= 90:\n    return \"A\"\n  else:\n    return \"F\"\n    \nprint(betyg(45))\nprint(betyg(55))\nprint(betyg(65))\nprint(betyg(75))\nprint(betyg(85))\nprint(betyg(95))\n"
+    }
+  ]
+}

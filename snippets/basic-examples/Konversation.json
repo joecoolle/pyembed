@@ -1,0 +1,9 @@
+{
+  "title": "Konversation",
+  "files": [
+    {
+      "name": "Konversation.py",
+      "content": "def fråga_namn():\n  namn = input(\"Vad heter du? \")\n  print(\"Hej \" + namn)\n\n\ndef fråga_ålder():\n  ålder = input(\"Hur gammal är du? \")\n  print(ålder + \" år är en riktigt bra ålder!\")\n\n\ndef fråga_intresse():\n  intresse = input(\"Vad är du intresserad av?\")\n  print(\"Jag gillar också \" + intresse)\n\n\ndef håll_konversation():\n  fråga_namn()\n  fråga_ålder()\n  fråga_intresse()\n  fråga_intresse()\n  fråga_intresse()\n\n\nhåll_konversation()\n"
+    }
+  ]
+}
