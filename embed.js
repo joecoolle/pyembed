@@ -411,6 +411,7 @@
       update(u)         { this.decorations = builtinDecorator.updateDeco(u, this.decorations); }
     }, { decorations: v => v.decorations });
     const files = normalizeFiles(snippet);
+    const multiFile = files.length > 1;
 
     // ── Build UI ──────────────────────────────────────────────────────────────
     widget.innerHTML = '';
@@ -445,17 +446,20 @@
     const mainArea = el('div', 'pw-main');
     widget.appendChild(mainArea);
 
-    // File panel
-    const filePanel = el('div', 'pw-files');
-    filePanel.appendChild(el('div', 'pw-files-hdr', 'Files'));
-    const fileList = el('div', 'pw-file-list');
-    filePanel.appendChild(fileList);
-    mainArea.appendChild(filePanel);
+    // File panel (multi-file projects only)
+    let fileList = null;
+    if (multiFile) {
+      const filePanel = el('div', 'pw-files');
+      filePanel.appendChild(el('div', 'pw-files-hdr', 'Files'));
+      fileList = el('div', 'pw-file-list');
+      filePanel.appendChild(fileList);
+      mainArea.appendChild(filePanel);
+    }
 
     // Editor section + output
     const editorSection = el('div', 'pw-editor-section');
-    const fileTabs      = el('div', 'pw-file-tabs');   // shown only in narrow mode
-    editorSection.appendChild(fileTabs);
+    const fileTabs = multiFile ? el('div', 'pw-file-tabs') : null;  // narrow mode
+    if (fileTabs) editorSection.appendChild(fileTabs);
     const editorArea    = el('div', 'pw-editor-area');
     editorSection.appendChild(editorArea);
 
@@ -581,20 +585,20 @@
     for (const f of files) {
       fileStates.set(f.name, makeState(f.name, f.content ?? ''));
 
-      // Sidebar item
-      const item = el('div', 'pw-file');
-      item.title = f.name;
-      item.innerHTML = `<span class="pw-file-icon">${fileIcon(f.name)}</span><span class="pw-file-name">${esc(f.name)}</span>`;
-      item.addEventListener('click', () => switchToFile(f.name));
-      fileList.appendChild(item);
-      fileItems.set(f.name, item);
+      if (multiFile) {
+        const item = el('div', 'pw-file');
+        item.title = f.name;
+        item.innerHTML = `<span class="pw-file-icon">${fileIcon(f.name)}</span><span class="pw-file-name">${esc(f.name)}</span>`;
+        item.addEventListener('click', () => switchToFile(f.name));
+        fileList.appendChild(item);
+        fileItems.set(f.name, item);
 
-      // Tab item (narrow mode)
-      const tab = el('div', 'pw-file-tab');
-      tab.innerHTML = `<span>${fileIcon(f.name)}</span><span>${esc(f.name)}</span>`;
-      tab.addEventListener('click', () => switchToFile(f.name));
-      fileTabs.appendChild(tab);
-      fileTabItems.set(f.name, tab);
+        const tab = el('div', 'pw-file-tab');
+        tab.innerHTML = `<span>${fileIcon(f.name)}</span><span>${esc(f.name)}</span>`;
+        tab.addEventListener('click', () => switchToFile(f.name));
+        fileTabs.appendChild(tab);
+        fileTabItems.set(f.name, tab);
+      }
     }
 
     const editor = new EditorView({
