@@ -1,9 +1,0 @@
-{
-  "title": "Småprat",
-  "files": [
-    {
-      "name": "Småprat.py",
-      "content": "def välkomna():\n  print(\"Välkommen!\")\n  småprata()\n  \ndef småprata():\n  print(\"Idag var det ändå fint väder\")\n  hälsa(\"Bob\")\n  \ndef hälsa(namn):\n    print('Hej, ' + nam)\n\nvälkomna()\n"
-    }
-  ]
-}
