@@ -1,0 +1,9 @@
+{
+  "title": "Input",
+  "files": [
+    {
+      "name": "Input.py",
+      "content": "temperatur = int(input(\"Ge utetemperatur: \"))\n\nprint(\"Idag är det\", temperatur, \"grader\")\n"
+    }
+  ]
+}
