@@ -1,6 +1,6 @@
 {
   "title": "Favoritglass",
-  "description": "Visar hur man använder en konstant samt en funktion med en parameter.",
+  "description": "Använder en konstant samt en funktion med en parameter.",
   "files": [
     {
       "name": "main.py",
