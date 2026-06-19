@@ -1,0 +1,9 @@
+{
+  "title": "Namnlista",
+  "files": [
+    {
+      "name": "Namnlista.py",
+      "content": "namnlista = [\"David\", \"Kim\", \"Julia\"]\nfor namn in namnlista:\n    print(namn)\n"
+    }
+  ]
+}

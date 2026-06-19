@@ -1,0 +1,9 @@
+{
+  "title": "MultiplikationMFel",
+  "files": [
+    {
+      "name": "MultiplikationMFel.py",
+      "content": "#Första exemplet, med fel\nlista1 = []\nfor i in range(1,6):\n  print(\"Multiplikationstabell för \" + str(i) + \":\", end=\" \")\n  for j in range(1,6):\n    produkt = i*j \n    lista1.append(produkt)\n  for resultat in lista1:\n    print(resultat, end=\" \")\n  print()\n\nprint(\"\\n\")\n#Andra exemplet, som fungerar som det ska\nfor i in range(1,6):\n  print(\"Multiplikationstabell för \" + str(i) + \":\", end=\" \")\n  lista2 = []\n  for j in range(1,6):\n    produkt = i*j \n    lista2.append(produkt)\n  for resultat in lista2:\n    print(resultat, end=\" \")\n  print()\n"
+    }
+  ]
+}

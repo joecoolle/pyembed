@@ -1,0 +1,9 @@
+{
+  "title": "ForI",
+  "files": [
+    {
+      "name": "ForI.py",
+      "content": "for i in range(10):\n    print(i)\n"
+    }
+  ]
+}
