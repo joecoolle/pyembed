@@ -4,6 +4,10 @@
     {
       "name": "SkrivTillFil1.py",
       "content": "with open('husdjur.txt', 'w') as file:\n   file.write('Katt\\n')\n   file.write('Hund\\n')\n"
+    },
+    {
+      "name": "husdjur.txt",
+      "content": ""
     }
   ]
 }
