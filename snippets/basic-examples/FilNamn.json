@@ -6,7 +6,7 @@
       "content": "#Ett program som läser in förnamn och efternamn från en fil\n\ndef läsa_fil(filnamn):\n  namnfil = open(filnamn, \"r\")\n  namnfil.readline()              #Läser in den första raden men spara inte värdet\n  förnamn = []\n  efternamn = []\n  alla_namn = namnfil.readlines()  #Läser in alla namn\n  for namn in alla_namn:\n    namn = namn.strip()\n    namnlista = namn.split(\" \")          #Delar upp strängen vid mellanslag, till en lista\n    förnamn.append(namnlista[0])         #Lägger in första elementet i förnamn\n    efternamn.append(namnlista[1])       #Lägger in andra elementet i efternamn\n  namnfil.close()  \n  return förnamn, efternamn\n\ndef main():\n  förnamn, efternamn = läsa_fil(\"friends.txt\")\n  print(\"Förnamn på kompisar:\")\n  for namn in förnamn:\n    print(namn)\n  print(\"\\nEfternamn på kompisar:\")\n  for namn in efternamn:\n    print(namn)\n  \nmain()\n"
     },
     {
-      "name": "Friends.txt",
+      "name": "friends.txt",
       "content": "Linus Ringwall\nFredrik Norlin\nGlenn Olsson\nOscar Ekholmn\n"
     }
   ]
