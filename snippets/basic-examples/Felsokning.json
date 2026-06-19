@@ -1,0 +1,9 @@
+{
+  "title": "Felsokning",
+  "files": [
+    {
+      "name": "Felsokning.py",
+      "content": "# Koden innehåller två typer av fel, provkör och se om du kan rätta till dem.\nräntefaktorn = 1.01\nif räntefaktorn > 1\n    print(\"Du får en positiv utveckling på dina sparpengar\")\n\n# Prova gärna att göra samma sak i det redigeringsprogram du använder (t.ex. IDLE) \n# och se hur presentationen av felen ser ut där.\n"
+    }
+  ]
+}
