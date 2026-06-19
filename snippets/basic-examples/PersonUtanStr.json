@@ -1,0 +1,9 @@
+{
+  "title": "PersonUtanStr",
+  "files": [
+    {
+      "name": "PersonUtanStr.py",
+      "content": "class Person:\n    def __init__(self, förnamn, efternamn, födelseår):\n        self.förnamn = förnamn\n        self.efternamn = efternamn\n        self.födelseår = födelseår\n    def skriv_intro(self):\n        print(\"Hej jag heter \" + self.förnamn + \" \" + self.efternamn + \" och jag är född \" + str(self.födelseår))\n\nkim = Person(\"Kim\",\"Efternamnsson\", 1993)\nprint(kim)\n"
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "title": "PersonMedStr",
+  "files": [
+    {
+      "name": "PersonMedStr.py",
+      "content": "class Person:\n    def __init__(self, förnamn, efternamn, födelseår):\n      self.förnamn = förnamn\n      self.efternamn = efternamn\n      self.födelseår = födelseår\n        \n    def __str__(self):\n      return self.förnamn + \": \" + str(self.födelseår)\n        \n    def skriv_intro(self):\n      print(\"Hej jag heter \" + self.förnamn + \" \" + self.efternamn + \" och jag är född\" + str(self.födelseår))\n\nkim = Person(\"Kim\",\"Efternamnsson\", 1995)\nprint(kim)\nkim.skriv_intro()\n"
+    }
+  ]
+}
