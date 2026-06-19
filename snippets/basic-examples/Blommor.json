@@ -3,7 +3,7 @@
   "files": [
     {
       "name": "Blommor.py",
-      "content": "def läsa_blomfil():\n  blomfil = open(\"infil.txt\", \"r\")\n  blommor = []\n  blomma = blomfil.readline()\n  while blomma != \"\":           #Så länge som raden inte är tom\n    pris = blomfil.readline()   #Här vill du läsa in nästa rad, den som innehåller priset och spars den i variabeln pris\n    blommor.append([blomma,pris])\n    blomma = blomfil.readline()  #läser in nästa rad, namnet på nästa blomma\n  blomfil.close()\n  return blommor\n \ndef main():\n  inlästa_blommor = läsa_blomfil()\n  for blomma in inlästa_blommor:\n    print(blomma[0] + \" har priset \" + blomma[1] + \" kr.\")\n  \nmain()\n"
+      "content": "def läsa_blomfil():\n  blomfil = open(\"infil.txt\", \"r\")\n  blommor = []\n  blomma = blomfil.readline()\n  while blomma != \"\":           #Så länge som raden inte är tom\n    pris = blomfil.readline()   #läs in priset\n    blommor.append([blomma,pris])\n    blomma = blomfil.readline()  #läser in namnet på nästa blomma\n  blomfil.close()\n  return blommor\n \ndef main():\n  inlästa_blommor = läsa_blomfil()\n  for blomma in inlästa_blommor:\n    print(blomma[0] + \" har priset \" + blomma[1] + \" kr.\")\n  \nmain()\n"
     },
     {
       "name": "infil.txt",
