@@ -1,0 +1,9 @@
+{
+  "title": "SkrivTillFil4",
+  "files": [
+    {
+      "name": "SkrivTillFil4.py",
+      "content": "namn = ['Katt\\n', 'Hund\\n', 'Marsvin\\n']\nwith open('husdjur.txt', 'w') as fil: \n   fil.writelines(namn)\n"
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "title": "SkrivTillFil2",
+  "files": [
+    {
+      "name": "SkrivTillFil2.py",
+      "content": "with open('husdjur.txt', 'a') as file:\n   file.write('Marsvin\\n')\n"
+    }
+  ]
+}
