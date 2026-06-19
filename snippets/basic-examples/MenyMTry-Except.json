@@ -1,0 +1,9 @@
+{
+  "title": "MenyMTry-Except",
+  "files": [
+    {
+      "name": "MenyMTry-Except.py",
+      "content": "def meny(): \n  \"\"\"En funktion som skriver ut en meny och frågar användaren om inmatning\"\"\"\n  print(\"Meny\\n1. Skriv ut en text.\\n2. Mata in en text.\\n3. Avsluta.\") \n  text = \"Det var en gång\\n\" \n  try:\n    val = int(input(\"Vad vill du göra?\\n\"))\n  except ValueError:\n    print(\"Nej, det där var inte ett giligt menyval, vänligen försök igen\\n\")\n    val = int(input(\"Vad vill du göra?\\n\"))\n  while val != 3: \n    if val == 1: \n      print(text) \n    elif val == 2: \n      text = input(\"Varsågod och mata in din text: \\n\")\n    val = int(input(\"Vad vill du göra?\\n\"))\n\nmeny()\n"
+    }
+  ]
+}
