@@ -1,9 +1,0 @@
-{
-  "title": "Person",
-  "files": [
-    {
-      "name": "Person.py",
-      "content": "class Person:\n    def __init__(self, förnamn, efternamn, födelseår):\n        self.förnamn = förnamn\n        self.efternamn = efternamn\n        self.födelseår = födelseår\n\n    def __lt__(self, other):\n        if self.förnamn < other.förnamn:\n            return True\n        else:\n            return False\n\n    def __repr__(self):\n        return self.förnamn + \": \" + str(self.födelseår)\n\n\ndef huvudprogram():\n    personlista = []\n    personlista.append(Person(\"Selim\", \"Farin\", 1999))\n    personlista.append(Person(\"Felicia\", \"Gröngöling\", 2002))\n    personlista.append(Person(\"Ebru\", \"Hansson\", 2004))\n\n    for person in personlista:\n        print(person)\n\n    print(\"\\nNu sorterad efter förnamn:\")\n    personlista.sort()\n    for person in personlista:\n        print(person)\n\n\nhuvudprogram()\n"
-    }
-  ]
-}
