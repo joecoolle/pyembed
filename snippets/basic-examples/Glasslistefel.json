@@ -3,7 +3,7 @@
   "files": [
     {
       "name": "Glasslistefel.py",
-      "content": "glasslista = [\"chokladglass\"]\n  \ndef ny_smak():\n    glasslista.append(\"hallonglass\")\n    glasslista.append(\"blåbärsglass\")\n  \ndef sortera_lista():\n    glasslista.sort() \n\nny_smak()\n\ndef ny_lista():\n    glasslista = [\"vaniljglass\", \"jordgubbsglass\", \"chokladglass\"]\n  \ndef ta_bort():\n    glasslista.remove(\"hallonglass\")\nny_lista()\nprint(glasslista)\n"
+      "content": "glasslista = [\"chokladglass\"]\n  \ndef ny_smak():\n    glasslista.append(\"hallonglass\")\n    glasslista.append(\"blåbärsglass\")\n  \ndef sortera_lista():\n    glasslista.sort() \n\nny_smak()\n\ndef ny_lista():\n    glasslista = [\"vaniljglass\", \"jordgubbsglass\", \"chokladglass\"]\n  \ndef ta_bort():\n    glasslista.remove(\"hallonglass\")\n\nny_lista()\nprint(glasslista)\n"
     }
   ]
 }
