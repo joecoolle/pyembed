@@ -1,0 +1,9 @@
+{
+  "title": "Greeting",
+  "files": [
+    {
+      "name": "Greeting.py",
+      "content": "def greeting():\n  \"\"\"Skriver ut en hälsningsfras\"\"\"\n  print(\"Hej!\")\n"
+    }
+  ]
+}
