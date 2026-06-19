@@ -1,0 +1,9 @@
+{
+  "title": "PersonMlt",
+  "files": [
+    {
+      "name": "PersonMlt.py",
+      "content": "class Person:\n    def __init__(self, förnamn, efternamn, födelseår):\n        self.förnamn = förnamn\n        self.efternamn = efternamn\n        self.födelseår = födelseår\n\n    def __lt__(self, other):\n        if self.förnamn < other.förnamn:\n            return True\n        elif self.förnamn == other.förnamn:\n            if self.efternamn < other.efternamn:\n                return True\n            else:\n                return False\n        else:\n            return False\n\n    def __repr__(self):\n        return self.förnamn + \" \" + self.efternamn + \": \" + str(self.födelseår)\n\ndef huvudprogram():\n    personlista = []\n    personlista.append(Person(\"Ebru\", \"Qvist\", 2006))\n    personlista.append(Person(\"Selim\", \"Farin\", 1999))\n    personlista.append(Person(\"Felicia\", \"Gröngöling\", 2002))\n    personlista.append(Person(\"Ebru\", \"Hansson\", 2004))\n\n    for person in personlista:\n        print(person)\n\n    print(\"\\nNu sorterad efter förnamn i första hand i andra hand efter efternamn:\")\n    personlista.sort()\n    for person in personlista:\n        print(person)\n\n\nhuvudprogram()\n"
+    }
+  ]
+}
