@@ -1,0 +1,9 @@
+{
+  "title": "Fsträng",
+  "files": [
+    {
+      "name": "Fsträng.py",
+      "content": "pi = 3.141592653589793\nprint(\"Pi =\", pi)        # Som vi visade ovan\nprint(f\"Pi = {pi}\")      # F-sträng med exakt samma utskrift som raden innan\nprint(f\"Pi = {pi:.2f}\")  # .2f för att skriva ut med två decimaler\nprint(f\"Pi = {pi:6.2f}\") # 6 för att hela talet ska skrivas ut på 6 platser, högerställt\n\n"
+    }
+  ]
+}
