@@ -3,7 +3,7 @@
   "files": [
     {
       "name": "Namnlista2.py",
-      "content": "namnlista = [\"Ali\", \"Bertil\", \"Celina\"]\n\nprint(\"Om man printar ut hela listan får man: \", namnlista)\nprint(\"Sista namnet i lsitan är \", namnlista[-1])\nprint(\"Näst sista namnet i listan är \", namnlista[-2])\nprint(\"Näst-näst sista namnet i listan är \", namnlista[-3])\n"
+      "content": "namnlista = [\"Ali\", \"Bertil\", \"Celina\"]\n\nprint(\"Om man skriver ut hela listan får man: \", namnlista)\nprint(\"Sista namnet i listan är \", namnlista[-1])\nprint(\"Näst sista namnet i listan är \", namnlista[-2])\nprint(\"Näst-näst sista namnet i listan är \", namnlista[-3])\n"
     }
   ]
 }
