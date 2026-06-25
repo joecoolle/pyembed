@@ -1,0 +1,9 @@
+{
+  "title": "Namnlista3",
+  "files": [
+    {
+      "name": "Namnlista3.py",
+      "content": "namelist = 3*[None]\nagelist = 3*[None]\nfor i in range(3):\n namelist[i] = input(\"Name of person number \" + str(i+1) + \": \")\n agelist[i] = input(\"Age of person number \" + str(i+1) + \": \")\n\nprint(namelist)\nprint(agelist)\n"
+    }
+  ]
+}
