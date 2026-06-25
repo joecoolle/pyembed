@@ -1,0 +1,9 @@
+{
+  "title": "Hej",
+  "files": [
+    {
+      "name": "Hej.py",
+      "content": "# Skriver ut hej\n\nfor i in range(3):\n  print(\"Hej!\")\n"
+    }
+  ]
+}

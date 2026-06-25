@@ -1,0 +1,9 @@
+{
+  "title": "NamnlistaAppend",
+  "files": [
+    {
+      "name": "NamnlistaAppend.py",
+      "content": "namnlista = []  # tom lista\n\nnamnlista.append(\"Ali\")\nnamnlista.append(\"Bertil\")\nnamnlista.append(\"Celina\")\nprint(namnlista)\n\nnamnlista.remove(\"Bertil\")\nprint(namnlista)\n"
+    }
+  ]
+}

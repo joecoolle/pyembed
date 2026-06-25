@@ -1,0 +1,9 @@
+{
+  "title": "NamnlistaIndex",
+  "files": [
+    {
+      "name": "NamnlistaIndex.py",
+      "content": "namnlista = [\"Ali\", \"Bertil\", \"Celina\"]\nprint(\"första namnet:\", namnlista[0])     # på index 0 finns värdet \"Ali\"\nprint(\"andra namnet:\", namnlista[1])      # på index 1 finns värdet \"Bertil\"\n"
+    }
+  ]
+}

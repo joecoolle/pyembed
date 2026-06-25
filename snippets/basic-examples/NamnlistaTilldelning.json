@@ -1,0 +1,9 @@
+{
+  "title": "NamnlistaTilldelning",
+  "files": [
+    {
+      "name": "NamnlistaTilldelning.py",
+      "content": "namnlista = [\"Ali\", \"Bertil\", \"Celina\"] \n\nnamnlista[1] = \"Jasmina\"  # ändrar värdet på index 1 till Jasmina\nprint(namnlista)\n"
+    }
+  ]
+}

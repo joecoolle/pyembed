@@ -1,0 +1,9 @@
+{
+  "title": "HejWhile",
+  "files": [
+    {
+      "name": "HejWhile.py",
+      "content": "# Skriver ut Hej!\ni=0\nwhile i<3:\n  print(\"Hej!\")\n  i = i+1\n"
+    }
+  ]
+}
