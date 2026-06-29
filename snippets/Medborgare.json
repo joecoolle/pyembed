@@ -1,9 +1,0 @@
-{
-  "title": "Medborgare",
-  "files": [
-    {
-      "name": "Medborgare.py",
-      "content": "class Medborgare:\n\n    nationalitet = \"svensk\"\n\n    def __init__(self, personnr, namn, adress):\n        self.personnr = personnr\n        self.namn = namn\n        self.adress = adress\n\n    def ändra_adress(self, ny_adress):\n        \"\"\"Kom ihåg: All klass-extern access till attribut sker via metodanrop. Därför finns denna metod.\"\"\"\n        self.adress = ny_adress\n\n\nclass Anställd(Medborgare):\n\n    företag = \"Byggare Bob AB\"\n\n    def __init__(self, personnr, namn, adress, jobbtitel, lön):\n        #super().__init__(personnr, namn, adress)                   # Alternativ 1: arv med super()\n        Medborgare.__init__(self,personnr, namn, adress)            # Alternativ 2: arv med klassnamnet\n        self.jobbtitel = jobbtitel\n        self.lön = lön\n\n    def ändra_lön(self, ny_lön):\n        self.lön = ny_lön\n\n    def ändra_jobbtitel(self, ny_jobbtitel):\n        self.jobbtitel = ny_jobbtitel\n\n    def presentation(self):\n        \"\"\" Här kan du se att attribut som t.ex. namn, adress och nationalitet ärvs från Medborgare\"\"\"\n        return f\"Hej! Jag heter {self.namn} och min jobbtitel är {self.jobbtitel}.\\n\" \\\n               f\"Jag jobbar på {self.företag} och bor på {self.adress}. Min nationalitet är {self.nationalitet}. \"\n\n\nperson1 = Anställd(\"920101-1234\", \"Bengt Bengtsson\", \"Kungsgatan 1\", \"Konstruktionsingenjör\", 55000)\nprint(person1.presentation())\n\nperson1.ändra_adress(\"Strandvägen 1\")           # vi kan anropa en metod som är definerad i Medborgare!\nperson1.ändra_jobbtitel(\"Senior Konstruktionsingenjör\")\nprint(\"\\n\" + person1.presentation())\n"
-    }
-  ]
-}
