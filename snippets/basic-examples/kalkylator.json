@@ -1,0 +1,9 @@
+{
+  "title": "kalkylator",
+  "files": [
+    {
+      "name": "kalkylator.py",
+      "content": "# Detta är filen med funktioner som ska testas\ndef addition(a,b):\n\treturn a+b\n \ndef subtraktion(a,b):\n\treturn a-b\n \ndef multiplikation(a,b):\n\treturn a*b\n \ndef division(a,b):\n\tif( b == 0):\n\t\traise ValueError(\"Ej delbart med 0\")\n\treturn a/b\n"
+    }
+  ]
+}
