@@ -1,9 +1,0 @@
-{
-  "title": "test_kalkylator",
-  "files": [
-    {
-      "name": "test_kalkylator.py",
-      "content": "import unittest\nimport kalkylator as kal  #filnamn\n \nclass TestKalkylator(unittest.TestCase):\n \n    def test_addition(self):\n        self.assertEqual(kal.addition(10,5), 15)\n \n    def test_subtraktion(self):\n        self.assertEqual(kal.subtraktion(10,3), 7)\n \n    def test_multiplikation(self):\n        self.assertEqual(kal.multiplikation(10,3), 30)\n \n    def test_division(self):\n        self.assertEqual(kal.division(10,2), 5)      \n \nif __name__ == '__main__':\n  unittest.main()\n"
-    }
-  ]
-}
