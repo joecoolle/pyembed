@@ -1,0 +1,13 @@
+{
+  "title": "Test av flagghöjning",
+  "files": [
+    {
+      "name": "test_division.py",
+      "content": "import unittest\nimport division as div  #filnamn\n \nclass TestDivision(unittest.TestCase):\n \n    def test_division(self):\n        self.assertEqual(div.division(10,2), 5)\n\n    def test_division_value(self):\n        \"\"\"Kontrollerar att ValueError ges vid nolldivision\"\"\"\n        with self.assertRaises(ValueError):\n            div.division(17, 0)\n            \nif __name__ == '__main__':\n  unittest.main()\n"
+    },
+      {
+      "name": "division.py",
+      "content": "# Detta är ett utdrag ur filen med funktioner som ska testas\ndef division(a,b):\n\tif( b == 0):\n\t\traise ValueError(\"Ej delbart med 0\")\n\treturn a/b\n"
+    }
+  ]
+}
