@@ -1,0 +1,9 @@
+{
+  "title": "dorrvakt_oordning",
+  "files": [
+    {
+      "name": "dorrvakt_oordning.py",
+      "content": "def dörrvakt(namn, ålder, åldersgräns = 18):\n    if ålder < åldersgräns:\n        print(\"Tyvärr\", namn, \"du kommer inte in!\")\n    else:\n        print(\"Välkommen\", namn+\"!\")\n\ndörrvakt(\"Julia\", åldersgräns = 18, ålder = 21)\n"
+    }
+  ]
+}

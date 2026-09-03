@@ -1,0 +1,9 @@
+{
+  "title": "skrik",
+  "files": [
+    {
+      "name": "skrik.py",
+      "content": "def skrik(meddelande):\n    print(meddelande + \"!!!\")\n\nskrik(\"shhhh\")\nskrik(\"Skrik inte\")\n"
+    }
+  ]
+}
