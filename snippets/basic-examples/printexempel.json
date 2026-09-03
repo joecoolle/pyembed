@@ -1,0 +1,9 @@
+{
+  "title": "printexempel",
+  "files": [
+    {
+      "name": "printexempel.py",
+      "content": "print(\"Hej\", end = \" \")\nprint(\"Sam\", end=\"!\")\n\n\n"
+    }
+  ]
+}
